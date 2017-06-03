@@ -881,7 +881,8 @@ public interface Constants {
 
     String[] WLAN_RX_WAKELOCKS = {
             "/sys/module/wakeup/parameters/wlan_rx_wake",
-            "/sys/module/wakeup/parameters/enable_wlan_rx_wake_ws"
+            "/sys/module/wakeup/parameters/enable_wlan_rx_wake_ws",
+            "/sys/module/wakeup/parameters/enable_wlan_rx_wakelock_ws"
     };
 
     String[] WLAN_CTRL_WAKELOCKS = {
@@ -896,11 +897,12 @@ public interface Constants {
 
     String WLAN_RX_WAKELOCK_DIVIDER = "/sys/module/bcmdhd/parameters/wl_divide";
     String MSM_HSIC_WAKELOCK_DIVIDER = "/sys/module/xhci_hcd/parameters/wl_divide";
-    String BCMDHD_WAKELOCK_DIVIDER = "/sys/module/bcmdhd/parameters/wl_divide";
+    String BCMDHD_WAKELOCK_DIVIDER = "/sys/module/bcmdhd/parameters/wl_rx_divide";
+    String BCMDHD_CTRL_WAKELOCK_DIVIDER = "/sys/module/bcmdhd/parameters/wl_ctrl_divide";
 
     String[][] WAKELOCK_ARRAY = {SMB135X_WAKELOCKS, WLAN_RX_WAKELOCKS, WLAN_CTRL_WAKELOCKS, WLAN_WAKELOCKS, {
             SENSOR_IND_WAKELOCK, MSM_HSIC_HOST_WAKELOCK, WLAN_RX_WAKELOCK_DIVIDER,
-            MSM_HSIC_WAKELOCK_DIVIDER, BCMDHD_WAKELOCK_DIVIDER, BLUESLEEP_WAKELOCK}};
+            MSM_HSIC_WAKELOCK_DIVIDER, BCMDHD_WAKELOCK_DIVIDER, BCMDHD_CTRL_WAKELOCK_DIVIDER, BLUESLEEP_WAKELOCK}};
 
 
     // Misc

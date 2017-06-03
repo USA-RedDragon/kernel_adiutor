@@ -37,7 +37,7 @@ public class WakeLockFragment extends RecyclerViewFragment implements SeekBarCar
 
     private SwitchCardView.DSwitchCard mSmb135xWakeLockCard, mBlueSleepWakeLockCard, mSensorIndWakeLockCard, mMsmHsicHostWakeLockCard;
     private SwitchCardView.DSwitchCard mWlanrxWakelockCard, mWlanctrlWakelockCard, mWlanWakelockCard;
-    private SeekBarCardView.DSeekBarCard mWlanrxWakelockDividerCard, mMsmHsicWakelockDividerCard, mBCMDHDWakelockDividerCard;
+    private SeekBarCardView.DSeekBarCard mWlanrxWakelockDividerCard, mMsmHsicWakelockDividerCard, mBCMDHDWakelockDividerCard, mBCMDHDCtrlWakelockDividerCard;
     
 
     public void init(Bundle savedInstanceState) {
@@ -155,6 +155,18 @@ public class WakeLockFragment extends RecyclerViewFragment implements SeekBarCar
             mBCMDHDWakelockDividerCard.setOnDSeekBarCardListener(this);
 
             views.add(mBCMDHDWakelockDividerCard);
+        }
+
+        if (WakeLock.hasBCMDHDCtrlWakelockDivider()) {
+            List<String> list = new ArrayList<>();
+            for (int i = 1; i < 9; i++) list.add(String.valueOf(i));
+
+            mBCMDHDCtrlWakelockDividerCard = new SeekBarCardView.DSeekBarCard(list);
+            mBCMDHDCtrlWakelockDividerCard.setTitle(getString(R.string.bcmdhd_ctrl_wakelock_divider));
+            mBCMDHDCtrlWakelockDividerCard.setProgress(WakeLock.getBCMDHDCtrlWakelockDivider());
+            mBCMDHDCtrlWakelockDividerCard.setOnDSeekBarCardListener(this);
+
+            views.add(mBCMDHDCtrlWakelockDividerCard);
         }
 
 
