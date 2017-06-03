@@ -99,6 +99,20 @@ public class WakeLock implements Constants {
         return Utils.existFile(BCMDHD_WAKELOCK_DIVIDER);
     }
 
+    public static void setBluesleepWakelockDivider(int value, Context context) {
+        String command = String.valueOf(value + 1);
+        Control.runCommand(command, BLUESLEEP_WAKELOCK_DIVIDER, Control.CommandType.GENERIC, context);
+    }
+
+    public static int getBluesleepWakelockDivider() {
+        int value = Utils.stringToInt(Utils.readFile(BLUESLEEP_WAKELOCK_DIVIDER));
+        return value - 1;
+    }
+
+    public static boolean hasBluesleepWakelockDivider() {
+        return Utils.existFile(BLUESLEEP_WAKELOCK_DIVIDER);
+    }
+
     public static void setBCMDHDCtrlWakelockDivider(int value, Context context) {
         String command = String.valueOf(value + 1);
         Control.runCommand(command, BCMDHD_CTRL_WAKELOCK_DIVIDER, Control.CommandType.GENERIC, context);

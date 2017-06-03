@@ -37,7 +37,7 @@ public class WakeLockFragment extends RecyclerViewFragment implements SeekBarCar
 
     private SwitchCardView.DSwitchCard mSmb135xWakeLockCard, mBlueSleepWakeLockCard, mSensorIndWakeLockCard, mMsmHsicHostWakeLockCard;
     private SwitchCardView.DSwitchCard mWlanrxWakelockCard, mWlanctrlWakelockCard, mWlanWakelockCard;
-    private SeekBarCardView.DSeekBarCard mWlanrxWakelockDividerCard, mMsmHsicWakelockDividerCard, mBCMDHDWakelockDividerCard, mBCMDHDCtrlWakelockDividerCard;
+    private SeekBarCardView.DSeekBarCard mWlanrxWakelockDividerCard, mMsmHsicWakelockDividerCard, mBCMDHDWakelockDividerCard, mBCMDHDCtrlWakelockDividerCard, mBluesleepWakelockDividerCard;
     
 
     public void init(Bundle savedInstanceState) {
@@ -145,6 +145,18 @@ public class WakeLockFragment extends RecyclerViewFragment implements SeekBarCar
             views.add(mWlanrxWakelockDividerCard);
         }
 
+        if (WakeLock.hasBluesleepWakelockDivider()) {
+            List<String> list = new ArrayList<>();
+            for (int i = 1; i < 9; i++) list.add(String.valueOf(i));
+
+            mBluesleepWakelockDividerCard = new SeekBarCardView.DSeekBarCard(list);
+            mBluesleepWakelockDividerCard.setTitle(getString(R.string.bluesleep_wakelock_divider));
+            mBluesleepWakelockDividerCard.setProgress(WakeLock.getBluesleepWakelockDivider());
+            mBluesleepWakelockDividerCard.setOnDSeekBarCardListener(this);
+
+            views.add(mBluesleepWakelockDividerCard);
+        }
+
         if (WakeLock.hasBCMDHDWakelockDivider()) {
             List<String> list = new ArrayList<>();
             for (int i = 1; i < 9; i++) list.add(String.valueOf(i));
@@ -193,7 +205,10 @@ public class WakeLockFragment extends RecyclerViewFragment implements SeekBarCar
             WakeLock.setMsmHsicWakelockDivider(position, getActivity());
         else if (dSeekBarCard == mBCMDHDWakelockDividerCard)
             WakeLock.setBCMDHDWakelockDivider(position, getActivity());
-
+        else if (dSeekBarCard == mBCMDHDCtrlWakelockDividerCard)
+            WakeLock.setBCMDHDCtrlWakelockDivider(position, getActivity());
+        else if (dSeekBarCard == mBluesleepWakelockDividerCard)
+            WakeLock.setBluesleepWakelockDivider(position, getActivity());
     }
 
     @Override

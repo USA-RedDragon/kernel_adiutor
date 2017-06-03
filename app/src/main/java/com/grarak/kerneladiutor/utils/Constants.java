@@ -875,6 +875,7 @@ public interface Constants {
     };
 
     String BLUESLEEP_WAKELOCK = "/sys/module/wakeup/parameters/enable_bluesleep_ws";
+    String BLUESLEEP_WAKELOCK_DIVIDER = "/sys/module/msm_bt_sleep/parameters/wl_divide";
 
     String SENSOR_IND_WAKELOCK = "/sys/module/wakeup/parameters/enable_si_ws";
     String MSM_HSIC_HOST_WAKELOCK = "/sys/module/wakeup/parameters/enable_msm_hsic_ws";
@@ -902,7 +903,7 @@ public interface Constants {
 
     String[][] WAKELOCK_ARRAY = {SMB135X_WAKELOCKS, WLAN_RX_WAKELOCKS, WLAN_CTRL_WAKELOCKS, WLAN_WAKELOCKS, {
             SENSOR_IND_WAKELOCK, MSM_HSIC_HOST_WAKELOCK, WLAN_RX_WAKELOCK_DIVIDER,
-            MSM_HSIC_WAKELOCK_DIVIDER, BCMDHD_WAKELOCK_DIVIDER, BCMDHD_CTRL_WAKELOCK_DIVIDER, BLUESLEEP_WAKELOCK}};
+            MSM_HSIC_WAKELOCK_DIVIDER, BLUESLEEP_WAKELOCK_DIVIDER, BCMDHD_WAKELOCK_DIVIDER, BCMDHD_CTRL_WAKELOCK_DIVIDER, BLUESLEEP_WAKELOCK}};
 
 
     // Misc
